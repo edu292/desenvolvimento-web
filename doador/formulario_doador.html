@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cliente</title>
-    <script src="../js/formulario_cliente.js" defer></script>
+    <script src="../js/formulario_doacao.js" defer></script>
     <style>
         * {
             margin: 0;
@@ -41,9 +41,8 @@
         
         form {
             display: grid;
-            grid-auto-rows: 10px;
             grid-template-columns: auto 1fr;
-            gap: 3rem 5rem;
+            gap: 1rem 5rem;
             align-items: center;
             justify-items: start;
             align-content: start;
@@ -53,6 +52,11 @@
             width: 250px;
             padding: 10px;
             border: 1px solid black;
+        }
+        
+        textarea {
+            width: 250px;
+            height: 150px;
         }
         
         .submit-button {
@@ -70,14 +74,14 @@
 <body>
     <div class="page-wrapper">
         <main>
-            <h1>Cliente</h1>
-            <form id="formulario-cliente">
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome">
-                <label for="email">E-Mail</label>
-                <input type="text" id="email" name="email">
-                <label for="nasc">Data de Nascimento</label>
-                <input type="date" id="nasc" name="nasc">
+            <h1>Doação</h1>
+            <form id="formulario-doacao">
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" name="titulo">
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" name="descricao"></textarea>
+                <label for="vencimento">Data de Vencimento</label>
+                <input type="date" id="vencimento" name="vencimento">
                 <input class="submit-button" type="submit" value="Enviar">
             </form>
         </main>

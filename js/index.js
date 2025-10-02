@@ -5,17 +5,10 @@ loginForm.addEventListener('submit', (event) => {
     login();
 })
 
-async function login(){
-    const loginFormData = new FormData(loginForm);
+function login(){
+    const resposta = {email: loginForm.email.value, password: loginForm.senha.value};
 
-    const retorno = await fetch("/php/login.php",{
-        method: "POST",
-        body: loginFormData
-    });
-
-    const resposta = await retorno.json();
-
-    localStorage.setItem("sessao",JSON.stringify(resposta));
+    localStorage.setItem("sessao", JSON.stringify(resposta));
 
     window.location.assign("home/index.html");
 }

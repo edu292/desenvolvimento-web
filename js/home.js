@@ -1,8 +1,4 @@
-const retorno = document.getElementById("retorno");
-if(localStorage.getItem("sessao")){
-    const sessao = JSON.parse(localStorage.getItem("sessao"));
-    retorno.textContent = "Seja bem vindo " + sessao.email;
-}else{
+if (!localStorage.getItem("sessao")) {
     window.location.assign("../index.html");
 }
 

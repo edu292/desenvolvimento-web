@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportador</title>
+    <script src="../js/transportador.js" defer></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .page-wrapper {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            padding: 50px;
+        }
+
+        main {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            background-color: lightgray;
+            border-radius: 10px;
+            padding: 20px;
+            gap: 10px
+        }
+
+        .card {
+            padding: 10px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            
+            &.card--concluido {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                background-color: #a2d45f;
+            }
+        }
+
+        .card button {
+            padding: 10px;
+            border-radius: 10px;
+            width: 100px;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+        }
+
+        .card button:hover {
+            background-color: lightgray;
+            color: black;
+        }
+
+        .button-wrapper {
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        p {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <main>
+            <div class="card">
+            
+            </div>
+        </main>
+    </div>
+</body>
+</html>

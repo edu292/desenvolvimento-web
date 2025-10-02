@@ -13,25 +13,25 @@
         }
         
         body {
-            height: 100vh;
             font-family: Arial, Helvetica, sans-serif;
         }
         
+        .page-wrapper {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            height: 100vh;
+        }
+        
         nav {
-            padding: 0 10px 5px 10px;
             background-color: #2b2b2b;
             color: white;
+            padding: 5px;
         }
         
         ul {
             list-style: none;
             display: flex;
-            gap: 5px;
-            align-items: center;
-        }
-        
-        li {
-            vertical-align: middle;
+            flex-flow: column nowrap;
         }
         
         a {
@@ -40,6 +40,7 @@
         }
         
         button {
+            width: 100%;
             border: none;
             background: none;
             font-size: inherit;
@@ -48,6 +49,7 @@
         }
         
         .navigation-item {
+            display: block;
             padding: 15px;
             border-radius: 5px;
         }
@@ -57,15 +59,29 @@
             color: #2b2b2b;
         }
         
+        iframe {
+            border: none;
+            height: 100%;
+            width: 100%;;
+        }
+        
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><button class="navigation-item" id="exit-button">Sair</button></li>
-            <li><a class="navigation-item" href="../cliente/index.html">Cliente</a></li>
-        </ul>
-    </nav>
-    <p id="retorno"></p>
+    <div class="page-wrapper">
+        <nav>
+            <ul>
+                <li><button class="navigation-item" id="exit-button">Sair</button></li>
+                <li><a class="navigation-item" href="../doador/index.html" target="iframe">Doador</a></li>
+                <li><a class="navigation-item" href="../receptor/index.html" target="iframe">Receptor</a></li>
+                <li><a class="navigation-item" href="../transportador/index.html" target="iframe">Transportador</a></li>
+            </ul>
+        </nav>
+        <main>
+            <iframe name="iframe">
+            
+            </iframe>
+        </main>
+    </div>
 </body>
 </html>
