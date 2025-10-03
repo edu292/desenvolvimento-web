@@ -18,4 +18,12 @@ async function login(){
     localStorage.setItem("sessao",JSON.stringify(resposta));
 
     window.location.assign("home/index.html");
-}
+};
+
+const botaocadastro = document.getElementById("cadastro");
+function irParaCadastro(){
+    window.location.href = "cadastro/index_cadastro.html"
+};
+if(botaocadastro){
+    botaocadastro.addEventListener('click',irParaCadastro)
+};
