@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <script src="js/formulario_cadastro.js" defer></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #F8F9FA;
+        }
+        
+        .page-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100dvh;
+        }
+        
+        .formulario-cadastro {
+            background-color: #FFFFFF;
+            box-shadow: 2px 6px 5px 3px #0000004d;
+            color: #111827;
+            border-radius: 8px;
+            padding: 20px;
+            height: fit-content;
+            font-size: 0.9em;
+            flex: 0 1 50%;
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 0.5rem;
+        }
+        
+        .formulario-cadastro input {
+            padding: 7px;
+            background-color: #D1D5DB;
+            border-radius: 3px;
+            border: none;
+        }
+        
+        .formulario-cadastro input::placeholder {
+            font-size: inherit;
+        }
+        
+        .formulario-cadastro input:focus {
+            outline-color: #003895;
+        }
+        
+        .fieldset-endereco {
+            margin: 10px 0;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px 30px;
+        }
+        
+        .error-output {
+            color: #E53E3E;
+        }
+        
+        .fieldset-endereco input {
+            width: 70%;
+        }
+        
+        .input-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .seletor-tipo-perfil {
+            display: flex;
+            border: none;
+            margin: 10px 0;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .seletor-tipo-perfil input:checked {
+            color: #2563EB;
+        }
+        
+        .submit-button{
+            border: none;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 8px;
+            border-radius: 5px;
+            margin: auto;
+            width: 300px;
+            background-color: #2563EB;
+            color: white;
+        }
+        
+        .submit-button:hover {
+            background-color: #1D4ED8;
+        }
+
+        input[type=number]::-webkit-outer-spin-button,
+        input[type=number]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <form class="formulario-cadastro" id="formulario-cadastro">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" required placeholder="Digite seu nome">
+    
+            <label for="telefone">Telefone</label>
+            <input id="telefone" name="telefone" type="number" required placeholder="Digite seu telefone">
+    
+            <label for="documento">CPF/CNPJ</label>
+            <input id="documento" name="cpf/cnpj" type="number" required placeholder="Digite seu CPF ou CNPJ">
+    
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="Digite seu email">
+    
+            <label for="senha">Senha</label>
+            <input id="senha" type="password" name="senha" required placeholder="Crie sua senha">
+            <output class="error-output" id="output-senha-invalida"></output>
+            <label for="confirmar-senha"> Confirmar Senha </label>
+            <input id="confirmar-senha" type="password" name="confirmar-senha" required placeholder="Confirme sua senha">
+    
+            <fieldset class="fieldset-endereco">
+                <legend>Endereço</legend>
+    
+                <div class="input-group">
+                    <label for="logradouro">Logradouro</label>
+                    <input id="logradouro" name="logradouro" type="text" required placeholder="Rua, Avenida, etc.">
+                </div>
+    
+                <div class="input-group">
+                    <label for="numero">Número</label>
+                    <input id="numero" name="numero-endereco" type="text" required placeholder="Número">
+                </div>
+    
+                <div class="input-group">
+                    <label for="cidade">Cidade</label>
+                    <input id="cidade" name="cidade" type="text" required placeholder="Cidade">
+                </div>
+    
+                <div class="input-group">
+                    <label for="cep">CEP</label>
+                    <input id="cep" name="cep" type="number" required placeholder="CEP">
+                </div>
+    
+                <div class="input-group">
+                    <label for="estado">Estado</label>
+                    <input id="estado" name="estado" type="text" required placeholder="Estado">
+                </div>
+            </fieldset>
+            
+            <fieldset class="seletor-tipo-perfil">
+                <div>
+                    <input type="radio" id="radio-doador" name="tipo-usuario" value="doador">
+                    <label for="radio-doador">Doador</label>
+                </div>
+                
+                <div>
+                    <input type="radio" id="radio-receptor" name="tipo-usuario" value="receptor">
+                    <label for="radio-receptor">Receptor</label>
+                </div>
+                
+                <div>
+                    <input type="radio" id="radio-transportador" name="tipo-usuario" value="transportador">
+                    <label for="radio-transportador">Transportador</label>
+                </div>
+            </fieldset>
+            
+            <button class="submit-button" type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>

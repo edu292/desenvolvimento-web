@@ -1,21 +1,16 @@
 const loginForm = document.getElementById('login-form');
+const listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios')) || [];
 
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    login();
-})
+    const sessao = listaUsuarios.find((usuario) => usuario.email === loginForm.email.value && usuario.senha === loginForm.senha.value);
 
-async function login(){
-    const loginFormData = new FormData(loginForm);
+    if (!sessao) {
+        loginForm['output-login-invalido'].value = 'Senha ou email inválidos';
+        return;
+    }
 
-    const retorno = await fetch("/php/login.php",{
-        method: "POST",
-        body: loginFormData
-    });
-
-    const resposta = await retorno.json();
-
-    localStorage.setItem("sessao",JSON.stringify(resposta));
+    localStorage.setItem("sessao", JSON.stringify(sessao));
 
     window.location.assign("home/index.html");
-}
+});

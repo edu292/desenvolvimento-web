@@ -1,2 +1,2 @@
 <?php
-$armazenador = array();
+$listaUsuarios = [];
