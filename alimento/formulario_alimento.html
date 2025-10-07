@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário Alimento</title>
+<<<<<<< HEAD
     <script src="../js/formulario_alimento.js" defer></script>
+=======
+    <script src="../js/formulario_alimento.js"></script>
+    <script src="../js/alimento.js" defer></script>
+>>>>>>> 3439508 (temporario)
     <style>
         * {
             padding: 0;
@@ -97,6 +102,7 @@
     <div class="pagina">
         <main class="content">
             <h1>Alimento</h1>
+<<<<<<< HEAD
             <form id="formulario-alimento">
                 <select name="nome" id="alimento">
                     <option value="" disabled selected>Selecione um alimento</option>
@@ -111,47 +117,65 @@
                         <option>Farinha de Trigo</option>
                         <option>Fubá</option>
                         <option>Aveia</option>
+=======
+            <form id="formulario_alimento">
+                <label for="alimento">Selecione um alimento:</label>
+                <select name="alimento" id="alimento">
+                    <option value="" disabled selected>-- Selecione --</option>
+
+                    <optgroup label="Grãos e Cereais" id="grupo-graos">
+                        <option value="arroz">Arroz</option>
+                        <option value="feijao-preto">Feijão Preto</option>
+                        <option value="feijao-carioca">Feijão Carioca</option>
+                        <option value="lentilha">Lentilha</option>
+                        <option value="milho-pipoca">Milho de Pipoca</option>
+                        <option value="macarrao">Macarrão</option>
+                        <option value="farinha-trigo">Farinha de Trigo</option>
+                        <option value="fuba">Fubá</option>
+                        <option value="aveia">Aveia</option>
+>>>>>>> 3439508 (temporario)
                     </optgroup>
 
-                    <optgroup label="Enlatados e Conservas">
-                        <option>Milho em Conserva</option>
-                        <option>Ervilha em Conserva</option>
-                        <option>Molho de Tomate</option>
-                        <option>Atum em Lata</option>
-                        <option>Sardinha em Lata</option>
+                    <optgroup label="Enlatados e Conservas" id="grupo-enlatados">
+                        <option value="milho-conserva">Milho em Conserva</option>
+                        <option value="ervilha-conserva">Ervilha em Conserva</option>
+                        <option value="molho-tomate">Molho de Tomate</option>
+                        <option value="atum-lata">Atum em Lata</option>
+                        <option value="sardinha-lata">Sardinha em Lata</option>
                     </optgroup>
 
-                    <optgroup label="Óleos, Temperos e Açúcares">
-                        <option>Óleo de Soja</option>
-                        <option>Sal Refinado</option>
-                        <option>Açúcar Refinado</option>
-                        <option>Café em Pó</option>
-                        <option>Achocolatado em Pó</option>
-                        <option>Leite em Pó</option>
-                        <option>Leite Condensado</option>
-                        <option>Creme de Leite</option>
+                    <optgroup label="Óleos, Temperos e Açúcares" id="grupo-temperos">
+                        <option value="oleo-soja">Óleo de Soja</option>
+                        <option value="sal-refinado">Sal Refinado</option>
+                        <option value="acucar-refinado">Açúcar Refinado</option>
+                        <option value="cafe-po">Café em Pó</option>
+                        <option value="achocolatado-po">Achocolatado em Pó</option>
+                        <option value="leite-po">Leite em Pó</option>
+                        <option value="leite-condensado">Leite Condensado</option>
+                        <option value="creme-leite">Creme de Leite</option>
                     </optgroup>
 
-                    <optgroup label="Biscoitos e Pães">
-                        <option>Biscoito Cream Cracker</option>
-                        <option>Biscoito Recheado</option>
-                        <option>Pão de Forma</option>
-                        <option>Pão Integral</option>
+                    <optgroup label="Biscoitos e Pães" id="grupo-panificados">
+                        <option value="biscoito-cream-cracker">Biscoito Cream Cracker</option>
+                        <option value="biscoito-recheado">Biscoito Recheado</option>
+                        <option value="pao-forma">Pão de Forma</option>
+                        <option value="pao-integral">Pão Integral</option>
                     </optgroup>
 
-                    <optgroup label="Bebidas">
-                        <option>Leite</option>
-                        <option>Suco em Caixa</option>
-                        <option>Suco em Pó</option>
+                    <optgroup label="Bebidas" id="grupo-bebidas">
+                        <option value="leite">Leite</option>
+                        <option value="suco-caixa">Suco em Caixa</option>
+                        <option value="suco-po">Suco em Pó</option>
                     </optgroup>
+
                     <option value="outros">Outros</option>
-                    </select>
+                </select>
+            </form>
 
 
                 <label for="categoria">Categoria</label>
-                <input type="text" name="categoria" id="categoria">
-
-                <label for="descricao">Descrição</label>
+                <input type="text" name="categoria" id="categoria" readonly>
+                <label for="descricao"> Descrição </label>
                 <input type="text" name="descricao" id="descricao">
 
                 <label for="prazo_validade">Prazo de Validade</label>
