@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário Alimento</title>
-    <script src="../js/formulario_alimento.js"></script>
+    <script src="../js/formulario_alimento.js" defer></script>
     <style>
         * {
             padding: 0;
@@ -66,7 +66,7 @@
             border-radius: 8px;
         }
 
-        #formulario_alimento {
+        #formulario-alimento {
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -78,7 +78,7 @@
             color: #555;
         }
 
-        input[type="text"],
+        input[type="text"], input[type="date"],
         select {
             width: 100%;
             padding: 12px;
@@ -97,8 +97,8 @@
     <div class="pagina">
         <main class="content">
             <h1>Alimento</h1>
-            <form id="formulario_alimento">
-                <select name="alimento" id="alimento">
+            <form id="formulario-alimento">
+                <select name="nome" id="alimento">
                     <option value="" disabled selected>Selecione um alimento</option>
                     
                     <optgroup label="Grãos e Cereais">
@@ -155,24 +155,20 @@
                 <input type="text" name="descricao" id="descricao">
 
                 <label for="prazo_validade">Prazo de Validade</label>
-                <input type="text" name="prazo_validade" id="prazo_validade">
+                <input type="date" name="validade" id="prazo_validade">
 
                 <label for="restricao">Restrição</label>
                 <input type="text" name="restricao" id="restricao">
 
                 <label for="armazenamento">Condição de Armazenamento</label>
-                <input type="text" name="armazenamento" id="armazenamento">                
+                <input type="text" name="armazenamento" id="armazenamento">
 
                 <footer class="footer-form">
-                    <a href="../alimento/index_alimento.html"><button type="button" class="botao verde" id="salvar">Salvar</button></a>
-                    <a href="../alimento/index_alimento.html"><button type="button"  class="botao vermelho" id="voltar">Voltar</button></a>
+                    <button type="submit" class="botao verde" id="salvar">Salvar</button>
+                    <a href="index.html"><button type="button" class="botao vermelho" id="voltar">Voltar</button></a>
                 </footer>
-
             </form>
         </main>
     </div>
-    <footer>
-        Copyright &copy;
-    </footer>
 </body>
 </html>

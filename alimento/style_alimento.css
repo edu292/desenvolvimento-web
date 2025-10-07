@@ -63,12 +63,16 @@ footer {
 button {
     border-style: none;
     height: 40px;
-    padding: 10px;
+    padding: 8px;
     background-color: black;
     color: white;
     font-size: 16px;
     cursor: pointer;
     border-radius: 8px;
+}
+
+.botao {
+    margin: 0 5px;
 }
 
 .botao.verde {
