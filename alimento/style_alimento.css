@@ -1,0 +1,91 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: hsl(29, 95%, 59%);
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+    margin: 5vh;
+    padding: 50px;
+    gap: 20px;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.tabela {
+    width: 100%;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+.tabela th {
+    height: 50px;
+    background-color: hsl(29, 100%, 66%);
+    text-align: center;
+}
+
+.tabela td {
+    height: 50px;
+    padding-left: 10px;
+
+}
+
+.tabela th:last-child, .tabela td:last-child {
+    text-align: center;
+}
+
+.tabela tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+button {
+    border-style: none;
+    height: 40px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.botao.verde {
+    background-color: #13CE66;;
+}
+
+.botao.azul {
+    background-color: #1FB6FF;
+}
+
+.botao.vermelho {
+    background-color: #FF4949;
+}
+
+.botao:hover{
+    box-shadow: inset 200px 0 0 #00000055;
+    transform: scale(1.1);
+}
+
+

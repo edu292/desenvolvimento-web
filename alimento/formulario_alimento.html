@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Alimento</title>
+    <script src="../js/formulario_alimento.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        button {
+            border-style: none;
+            height: 40px;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .botao.verde {
+            background-color: #13CE66;;
+        }
+
+        .botao.vermelho {
+            background-color: #FF4949;
+        }
+
+        .botao:hover{
+            box-shadow: inset 100px 0 0 #00000055;
+            transform: scale(1.1);
+        }
+
+        body {
+            font-family: arial;
+            display: flex;
+            flex-direction: column;
+            background-color: #dadada;
+        }
+        .pagina {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .content {
+            background-color: #fff;
+            padding: 60px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 70px;
+            background-color: hsl(29, 95%, 59%);
+            height: 70px;
+            line-height: 65px;
+            font-weight: 200;
+            border-radius: 8px;
+        }
+
+        #formulario_alimento {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: 500;
+            margin-bottom: -5px; 
+            color: #555;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body class="form">
+    <div class="pagina">
+        <main class="content">
+            <h1>Alimento</h1>
+            <form id="formulario_alimento">
+                <select name="alimento" id="alimento">
+                    <option value="" disabled selected>Selecione um alimento</option>
+                    
+                    <optgroup label="Grãos e Cereais">
+                        <option>Arroz</option>
+                        <option>Feijão Preto</option>
+                        <option>Feijão Carioca</option>
+                        <option>Lentilha</option>
+                        <option>Milho de Pipoca</option>
+                        <option>Macarrão</option>
+                        <option>Farinha de Trigo</option>
+                        <option>Fubá</option>
+                        <option>Aveia</option>
+                    </optgroup>
+
+                    <optgroup label="Enlatados e Conservas">
+                        <option>Milho em Conserva</option>
+                        <option>Ervilha em Conserva</option>
+                        <option>Molho de Tomate</option>
+                        <option>Atum em Lata</option>
+                        <option>Sardinha em Lata</option>
+                    </optgroup>
+
+                    <optgroup label="Óleos, Temperos e Açúcares">
+                        <option>Óleo de Soja</option>
+                        <option>Sal Refinado</option>
+                        <option>Açúcar Refinado</option>
+                        <option>Café em Pó</option>
+                        <option>Achocolatado em Pó</option>
+                        <option>Leite em Pó</option>
+                        <option>Leite Condensado</option>
+                        <option>Creme de Leite</option>
+                    </optgroup>
+
+                    <optgroup label="Biscoitos e Pães">
+                        <option>Biscoito Cream Cracker</option>
+                        <option>Biscoito Recheado</option>
+                        <option>Pão de Forma</option>
+                        <option>Pão Integral</option>
+                    </optgroup>
+
+                    <optgroup label="Bebidas">
+                        <option>Leite</option>
+                        <option>Suco em Caixa</option>
+                        <option>Suco em Pó</option>
+                    </optgroup>
+                    <option value="outros">Outros</option>
+                    </select>
+
+
+                <label for="categoria">Categoria</label>
+                <input type="text" name="categoria" id="categoria">
+
+                <label for="descricao">Descrição</label>
+                <input type="text" name="descricao" id="descricao">
+
+                <label for="prazo_validade">Prazo de Validade</label>
+                <input type="text" name="prazo_validade" id="prazo_validade">
+
+                <label for="restricao">Restrição</label>
+                <input type="text" name="restricao" id="restricao">
+
+                <label for="armazenamento">Condição de Armazenamento</label>
+                <input type="text" name="armazenamento" id="armazenamento">                
+
+                <footer class="footer-form">
+                    <a href="../alimento/index_alimento.html"><button type="button" class="botao verde" id="salvar">Salvar</button></a>
+                    <a href="../alimento/index_alimento.html"><button type="button"  class="botao vermelho" id="voltar">Voltar</button></a>
+                </footer>
+
+            </form>
+        </main>
+    </div>
+    <footer>
+        Copyright &copy;
+    </footer>
+</body>
+</html>
