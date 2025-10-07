@@ -18,5 +18,5 @@ formularioCadastro.addEventListener("submit", (event)=>{
 
     localStorage.setItem('listaUsuarios', JSON.stringify(listaUsuarios));
 
-    window.location.assign('home/index.html');
+    window.location.assign('index.html');
 });
