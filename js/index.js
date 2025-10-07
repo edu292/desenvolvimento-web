@@ -12,5 +12,11 @@ loginForm.addEventListener('submit', (event) => {
 
     localStorage.setItem("sessao", JSON.stringify(sessao));
 
-    window.location.assign("home/index.html");
+    if (sessao["tipo-usuario"] == "doador"){
+        window.location.assign("home/doador.html");
+    }else if (sessao["tipo-usuario"] == "receptor"){
+        window.location.assign("home/receptor.html");
+    }else if(sessao["tipo-usuario"] == "transportador"){
+        window.location.assign("home/transportador.html")
+    }
 });
