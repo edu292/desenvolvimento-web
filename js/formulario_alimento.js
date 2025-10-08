@@ -68,6 +68,11 @@ const categorias = [
     }
 ];
 
+
+function opcaoValida(selectElement, optionToCheck) {
+    return Array.from(selectElement.options).some(option => option.value === optionToCheck)
+}
+
 const formularioAlimento = document.getElementById('formulario-alimento');
 const idAlimento = new URLSearchParams(window.location.search).get('id');
 const dbAlimento = JSON.parse(localStorage.getItem("dbAlimento")) || [];
@@ -77,13 +82,10 @@ if (idAlimento && dbAlimento[idAlimento]) {
     const alimento = dbAlimento[idAlimento];
     for (let key in alimento) {
         if (formularioAlimento[key]) {
-            if (key === 'nome') {
-                const selectElement = formularioAlimento[key];
-                if (!Array.from(selectElement.options).some(option => option.text === alimento[key])) {
-                    formularioAlimento['nome'].value = 'outro';
-                    formularioAlimento['nome-outro'].value = alimento['nome'];
-                    formularioAlimento['nome-outro'].hidden = false;
-                }
+            if (key === 'nome' && !opcaoValida(formularioAlimento['nome'], alimento['nome'])) {
+                formularioAlimento['nome'].value = 'outro';
+                formularioAlimento['nome-outro'].value = alimento['nome'];
+                formularioAlimento['nome-outro'].hidden = false;
             } else {
                 formularioAlimento[key].value = alimento[key];
             }
