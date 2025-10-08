@@ -71,12 +71,22 @@ const categorias = [
 const formularioAlimento = document.getElementById('formulario-alimento');
 const idAlimento = new URLSearchParams(window.location.search).get('id');
 const dbAlimento = JSON.parse(localStorage.getItem("dbAlimento")) || [];
+carregarOpcoes();
 
 if (idAlimento && dbAlimento[idAlimento]) {
     const alimento = dbAlimento[idAlimento];
-    for (const key in alimento) {
+    for (let key in alimento) {
         if (formularioAlimento[key]) {
-            formularioAlimento[key].value = alimento[key];
+            if (key === 'nome') {
+                const selectElement = formularioAlimento[key];
+                if (!Array.from(selectElement.options).some(option => option.text === alimento[key])) {
+                    formularioAlimento['nome'].value = 'outro';
+                    formularioAlimento['nome-outro'].value = alimento['nome'];
+                    formularioAlimento['nome-outro'].hidden = false;
+                }
+            } else {
+                formularioAlimento[key].value = alimento[key];
+            }
         }
     }
 }
@@ -93,7 +103,7 @@ formularioAlimento.nome.addEventListener('change', (event) => {
         formularioAlimento['nome-outro'].value = '';
         formularioAlimento.categoria.value = parentElement.dataset.value;
     }
-})
+});
 
 formularioAlimento.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -118,7 +128,6 @@ formularioAlimento.addEventListener('submit', (event) => {
     window.location.assign('index.html');
 });
 
-
 function carregarOpcoes() {
     let alimentoHtml = '<option value="" disabled selected>-- Selecione --</option>';
     let categoriaHtml = '<option value="" disabled selected>-- Selecione --</option>';
@@ -136,4 +145,3 @@ function carregarOpcoes() {
     formularioAlimento.nome.innerHTML = alimentoHtml;
     formularioAlimento.categoria.innerHTML = categoriaHtml;
 }
-carregarOpcoes();
