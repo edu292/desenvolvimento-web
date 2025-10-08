@@ -10,13 +10,19 @@ formularioCadastro.addEventListener("submit", (event)=>{
 
     const formData = new FormData(formularioCadastro);
     const usuario = Object.fromEntries(formData.entries());
+    const listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios')) || [];
+    usuario.id = listaUsuarios.length;
 
     localStorage.setItem('sessao', JSON.stringify(usuario));
-
-    const listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios')) || [];
     listaUsuarios.push(usuario);
 
     localStorage.setItem('listaUsuarios', JSON.stringify(listaUsuarios));
 
-    window.location.assign('index.html');
+    if (usuario["tipo-usuario"] === "doador"){
+        window.location.assign("home/doador.html");
+    }else if (usuario["tipo-usuario"] === "receptor"){
+        window.location.assign("home/receptor.html");
+    }else if(usuario["tipo-usuario"] === "transportador"){
+        window.location.assign("home/transportador.html")
+    }
 });
