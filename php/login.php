@@ -7,5 +7,4 @@ foreach ($listaUsuarios as $usuario) {
         echo json_encode($usuario);
     }
 }
-
 echo json_encode(["erro" => "email ou senha incorretos"]);
