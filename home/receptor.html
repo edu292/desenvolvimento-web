@@ -4,8 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Receptor</title>
+    <script src="../js/home/receptor.js" defer></script>
+    <style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f8f9fa; 
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    nav {
+        background-color: hsl(29, 100%, 66%); 
+        height: 50px;
+        display: flex;
+        padding: 0 15px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .btn {
+        background-color: #0d6efd;
+        color: white;
+        border-radius: 6px;
+        padding: 8px 12px;
+        border: none;
+        cursor: pointer;
+    }
+
+
+    .cards-container {
+        width: 90%; 
+        margin: 20px auto;
+        padding: 15px; 
+    }
+
+    .card-doacao {
+        background-color: white;
+        padding: 15px;
+        margin-bottom: 10px;
+        border: 1px solid #dee2e6; 
+        border-left: 5px solid #ff7f50; 
+        border-radius: 6px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-doacao h4 {
+        color: #343a40;
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-size: 1.1em;
+    }
+
+    .card-doacao p {
+        color: #6c757d;
+        font-size: 0.9em;
+        margin-bottom: 3px;
+    }
+
+    .card-footer {
+        padding-top: 10px;
+        margin-top: 10px;
+        border-top: 1px solid #eee; 
+        text-align: right; /
+    }
+
+    .btn-aceitar {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .btn-aceitar:hover {
+        background-color: #1e7e34;
+    }
+    </style>
 </head>
 <body>
-    
+    <nav>
+        <button type="button" class="btn" id="botao-sair" name="botao-sair">Sair</button>
+    </nav>
+    <h1 style="text-align: center; justify-content: center; padding-top: 20px; text-decoration:underline;">Visualização das doações disponíveis</h1>
+    <div class="cards-container" id="cards-container">
+
+    </div>
 </body>
 </html>
