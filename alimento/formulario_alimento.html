@@ -80,9 +80,15 @@
             margin-bottom: -5px; 
             color: #555;
         }
+        
+        .medidas-item {
+            border: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
 
-        input[type="text"], input[type="date"],
-        select {
+        input, select {
             width: 100%;
             padding: 12px;
             border: 1px solid #ccc;
@@ -109,21 +115,17 @@
                 <label for="categoria">Selecione uma categoria:</label>
                 <select name="categoria" id="categoria">
                 </select>
-                <label for="descricao">Descrição</label>
-                <input type="text" name="descricao" id="descricao">
-
-                <label for="prazo_validade">Prazo de Validade</label>
-                <input type="date" name="validade" id="prazo_validade">
-
-                <label for="restricao">Insíra a quantidade (em Kg) do item</label>
-                <input type="number" min="0" step="any" name="restricao" id="restricao">
-
-                <label for="armazenamento">Condição de Armazenamento</label>
-                <input type="text" name="armazenamento" id="armazenamento">
+                
+                <fieldset class="medidas-item">
+                    <label for="peso-unidade">Peso por item (Kg)</label>
+                    <label for="unidades">Quantidade de itens</label>
+                    
+                    <input type="number" min="0" step="any" name="peso-unidade" id="peso-unidade">
+                    <input type="number" min="1" name="unidades" id="unidades">
+                </fieldset>
 
                 <footer class="footer-form">
-                    <button type="submit" class="botao verde" id="salvar">Salvar</button>
-                    <a href="index.html"><button type="button" class="botao vermelho" id="voltar">Voltar</button></a>
+                    <button type="submit" class="botao verde" id="Adicionar Item">Salvar</button>
                 </footer>
             </form>
         </main>

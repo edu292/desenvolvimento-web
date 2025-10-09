@@ -1,5 +1,5 @@
 const loginForm = document.getElementById('login-form');
-const listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios')) || [];
+const listaUsuarios = JSON.parse(localStorage.getItem('listaUsuarios')) || [{email: 'admin', senha: 'admin123', tipoUsuario: 'admin'}];
 
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -12,11 +12,11 @@ loginForm.addEventListener('submit', (event) => {
 
     localStorage.setItem("sessao", JSON.stringify(sessao));
 
-    if (sessao["tipo-usuario"] == "doador"){
+    if (sessao.tipoUsuario === "doador"){
         window.location.assign("home/doador.html");
-    }else if (sessao["tipo-usuario"] == "receptor"){
+    } else if (sessao.tipoUsuario === "receptor"){
         window.location.assign("home/receptor.html");
-    }else if(sessao["tipo-usuario"] == "transportador"){
+    } else if(sessao.tipoUsuario === "transportador") {
         window.location.assign("home/transportador.html")
     }
 });

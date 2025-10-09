@@ -1,63 +1,51 @@
+sessao = JSON.parse(localStorage.getItem('sessao'));
+if (!sessao || sessao.tipoUsuario !== 'doador') {
+    window.location.assign('../index.html');
+}
 
-const botao_sair = window.document.getElementById('botao_sair'); 
-const botao_gerenciar = window.document.getElementById('botao_gerenciar');
-const cards_doacoes_pai = window.document.querySelector('.cards_doacoes_pai');
-const KEY_DOACOES = 'dbAlimento'; 
+const botaoSair = window.document.getElementById('botao-sair');
+const cardsContainer = window.document.querySelector('.cards-container');
+const listaDoacoes = JSON.parse(localStorage.getItem('listaDoacoes')) ?? [];
+const doacoesUsuario = listaDoacoes.filter(doacao => doacao.idUsuario === sessao.id);
 
-function sair(){
+function sair() {
     window.localStorage.removeItem("sessao");
-    window.location.href = '../index.html'; 
+    window.location.href = '../index.html';
 }
-
-function gerenciar_alimentos(){
-    window.location.href = '../alimento/index.html';
-}
-
-
 
 
 function carregarDoacoes() {
-    const dbAlimentoJSON = localStorage.getItem(KEY_DOACOES);
-
-    if (!dbAlimentoJSON || dbAlimentoJSON === '[]'){
-
-        cards_doacoes_pai.innerHTML = `
+    let htmlCards;
+    if (!doacoesUsuario || doacoesUsuario.length === 0) {
+        htmlCards = `
             <div style="
                 text-align: center; 
                 padding: 30px; 
                 color: #555; 
-                width: 400px; /* Largura que comporta o texto */
-                margin: 0 auto; /* Centraliza a div */
+                width: 400px;
+                margin: 0 auto;
             ">
                 <h2>Nenhuma doação cadastrada ainda.</h2>
-                <p>Use o botão "Gerenciar alimentos" para cadastrar sua primeira doação!</p>
+                <p>Use o botão "Criar Doação" para cadastrar sua primeira doação!</p>
             </div>`;
     } else {
-        const dbAlimento = JSON.parse(dbAlimentoJSON);
-        let htmlCards = '';
-
-        dbAlimento.forEach((doacao) => {
-
-            const doacaoString = JSON.stringify(doacao).replace(/"/g, '&quot;');
-            
+        htmlCards = '';
+        doacoesUsuario.forEach((doacao) => {
             htmlCards += `
-                <div class="card-doacao-item">
-                    <h4>${doacao.nome}</h4>
-                    <p>Validade: ${doacao.validade}</p>
-                    <p>Categoria: ${doacao.categoria}</p>
-                    <p>Armazenamento: ${doacao.armazenamento}</p>
-                    <p>Restrição: ${doacao.restricao}</p>
-                    <p>Descrição: ${doacao.descricao}</p></br>
+                <a href="../doacao/formulario.html?id=${doacao.id}">
+                <div class="card-doacao">
+                    <h4>${doacao.titulo}</h4>
+                    <p>Quantidade de Itens: ${doacao.unidades}</p>
+                    <p>Peso Total (Kg): ${doacao.peso}</p>
+                    <p>Status: ${doacao.status}</p>
                 </div>
+                </a>
             `;
         });
-        cards_doacoes_pai.innerHTML = htmlCards;
     }
+    cardsContainer.innerHTML = htmlCards;
 }
 
+botaoSair.addEventListener('click', sair);
 
-
-carregarDoacoes(); 
-
-botao_gerenciar.addEventListener('click', gerenciar_alimentos);
-botao_sair.addEventListener('click', sair);
+carregarDoacoes();

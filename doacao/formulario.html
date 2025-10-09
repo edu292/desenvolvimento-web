@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doação</title>
+    <script src="../js/formulario_doacao.js" defer></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .page-wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        header {
+            background-color: hsl(29, 95%, 59%);
+            text-align: center;
+            height: 70px;
+            line-height: 70px;
+        }
+        
+        main {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas:
+                    "formulario-doacao tabela-alimentos"
+                    "formulario-alimento tabela-alimentos"
+                    "criar-doacao tabela-alimentos";
+            height: 100%;
+            padding: 20px;
+            gap: 0 20px;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .medidas-item {
+            border: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        #formulario-doacao {
+            grid-area: formulario-doacao;
+        }
+        
+        #formulario-alimento {
+            grid-area: formulario-alimento;
+            justify-content: center;
+        }
+        
+        #botao-criar-doacao {
+            grid-area: criar-doacao;
+        }
+        
+        footer {
+            margin: 0 auto;
+            display: block;
+        }
+
+        input, select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .table-wrapper {
+            grid-area: tabela-alimentos;
+        }
+        
+        .tabela {
+            width: 100%;
+        }
+
+        .tabela th {
+            height: 50px;
+            background-color: hsl(29, 100%, 66%);
+            text-align: center;
+        }
+        
+        .tabela td {
+            height: 50px;
+            padding-left: 10px;
+        }
+
+        .tabela th:last-child, .tabela td:last-child {
+            text-align: center;
+        }
+
+        .tabela tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        tbody {
+            align-items: flex-start;
+        }
+        
+        #corpo-tabela {
+            height: fit-content;
+        }
+
+        button {
+            border-style: none;
+            height: 40px;
+            padding: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            margin: 0 5px;
+            background-color: hsl(29, 100%, 66%);
+        }
+
+        button:hover {
+            filter: brightness(90%);
+            transform: scale(1.05);
+        }
+
+        .verde {
+            background-color: #13CE66;;
+        }
+
+        .azul {
+            background-color: #1FB6FF;
+        }
+
+        .vermelho {
+            background-color: #FF4949;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <h1>Doação</h1>
+        </header>
+        <main>
+            <form id="formulario-doacao">
+                <label for="titulo">Título:</label>
+                <input type="text" name="titulo" id="titulo">
+            </form>
+            
+            <form class="formulario-alimento" id="formulario-alimento">
+                <label for="nome">Selecione um alimento:</label>
+                <select name="nome" id="nome" required>
+                </select>
+                <input type="text" id="nome-outro" name="nome-outro" placeholder="Especifique o alimento" hidden>
+                
+                <label for="categoria">Selecione uma categoria:</label>
+                <select name="categoria" id="categoria" required>
+                </select>
+                
+                <fieldset class="medidas-item">
+                    <label for="peso-unidade">Peso por item (Kg)</label>
+                    <label for="quantidade">Quantidade de itens</label>
+                    
+                    <input type="number" min="0" step="any" name="pesoUnidade" id="peso-unidade" required>
+                    <input type="number" min="1" name="quantidade" id="quantidade" value="1" required>
+                </fieldset>
+                
+                <footer>
+                    <button type="submit" class="verde">Salvar</button>
+                    <button type="reset" class="azul">Novo Alimento</button>
+                </footer>
+            </form>
+            
+            <button id="botao-criar-doacao" type="submit" form="formulario-doacao">Criar Doação</button>
+            
+            <section class="table-wrapper">
+                <table class="tabela">
+                    <thead>
+                    <tr>
+                        <th>Alimento</th>
+                        <th>Categoria</th>
+                        <th>Peso(kg)</th>
+                        <th>Unidades</th>
+                        <th>Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody id="corpo-tabela">
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

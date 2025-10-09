@@ -5,29 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Doador</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="../js/home/doador.js" defer></script>
     <style>
-        .nav_botoes {
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav {
             background-color: hsl(29, 100%, 66%);
             height: 50px;
             display: flex;
             padding: 4px;
             justify-content: space-between;
+            align-items: center;
+        }
+        
+        .btn {
+            background-color: #0d6efd;
+            color: white;
+            border-radius: 8px;
+            padding: 15px;
+            border: none;
+            display: block;
+            font-size: inherit;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #0056b8;
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        .minhas_doacoes {
+        .minhas-doacoes {
             display: flex;
             justify-content: center;
             margin-top: 30px;
             text-decoration: underline;
         }
 
-        .cards_doacoes_pai {
+        .cards-container {
             width: 96%;
             margin: 30px auto;
             max-height: 500px;
@@ -38,7 +59,7 @@
             border-radius: 15px;
         }
 
-        .card-doacao-item {
+        .card-doacao {
             background-color: white;
             padding: 15px;
             margin-bottom: 10px;
@@ -48,37 +69,38 @@
             transition: transform 0.2s;
         }
 
-        .card-doacao-item:hover {
+        .card-doacao:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .card-doacao-item h4 {
+        .card-doacao h4 {
             margin-top: 0;
             color: #343a40;
         }
 
-        .card-doacao-item p {
+        .card-doacao p {
             margin-bottom: 0;
             color: #6c757d;
             font-size: 0.9em;
+        }
+        
+        a {
+            text-decoration: none;
         }
     </style>
 </head>
 
 <body>
-    <nav class="nav_botoes">
-        <button type="button" class="btn btn-primary" id="botao_sair" name="botao_sair">sair</button>
-        <button type="button" class="btn btn-primary" id="botao_gerenciar" name="botao_gerenciar">Gerenciar doações</button>
+    <nav>
+        <button type="button" class="btn" id="botao-sair" name="botao-sair">sair</button>
+        <a href="../doacao/formulario.html" class="btn" id="botao-gerenciar">Criar Doação</a>
     </nav>
-    <div class="minhas_doacoes">
+    <div class="minhas-doacoes">
         <h1>Minhas doações</h1>
     </div>
-    <div class="cards_doacoes_pai">
+    <div class="cards-container">
 
     </div>
-
-    <script src="../js/home/doador.js"></script>
 </body>
-
 </html>

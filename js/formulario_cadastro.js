@@ -18,11 +18,11 @@ formularioCadastro.addEventListener("submit", (event)=>{
 
     localStorage.setItem('listaUsuarios', JSON.stringify(listaUsuarios));
 
-    if (usuario["tipo-usuario"] === "doador"){
+    if (usuario.tipoUsuario === "doador"){
         window.location.assign("home/doador.html");
-    }else if (usuario["tipo-usuario"] === "receptor"){
+    } else if (usuario.tipoUsuario === "receptor"){
         window.location.assign("home/receptor.html");
-    }else if(usuario["tipo-usuario"] === "transportador"){
+    } else if(usuario.tipoUsuario === "transportador"){
         window.location.assign("home/transportador.html")
     }
 });
