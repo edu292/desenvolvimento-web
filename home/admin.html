@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .page-wrapper {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: 1fr;
+            height: 100vh;
+        }
+        
+        nav {
+            background-color: #2b2b2b;
+        }
+        
+        nav ul {
+            list-style-type: none;
+        }
+        
+        nav a {
+        
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <nav>
+            <ul>
+                <li><a href="admin/usuarios.html" target="main">Usuários</a></li>
+                <li><a href="admin/categorias.html" target="main">Categorias</a></li>
+                <li><a href="admin/alimentos.html" target="main">Alimentos</a></li>
+            </ul>
+        </nav>
+        <main>
+            <iframe name="main"></iframe>
+        </main>
+    </div>
+</body>
+</html>

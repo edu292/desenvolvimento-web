@@ -18,5 +18,7 @@ loginForm.addEventListener('submit', (event) => {
         window.location.assign("home/receptor.html");
     } else if(sessao.tipoUsuario === "transportador") {
         window.location.assign("home/transportador.html")
+    } else if (sessao.tipoUsuario === "admin") {
+        window.location.assign("home/admin.html");
     }
 });

@@ -1,11 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home transportador</title>
+    <script src="../js/transportador.js"> </script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: sans-serif;
+        }
+        
+        #cards {
+            width: 100vw;
+            height: 100vh;
+            padding: 20px;
+            background-color: #f0f2f5;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            align-content: start;
+            gap: 15px;
+            overflow-y: auto;
+        }
+        
+        .card {
+            height: 150px;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: fadeIn 0.4s ease;
+            position: relative;
+        }
+
+
+
+
+        .rejeitar_pedido {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+
+
+            width: 24px;
+            height: 24px;
+            background-color: #e4e6eb;
+            color: #444;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 24px;
+            text-align: center;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+
+
+
+        .rejeitar_pedido:hover {
+            background-color: #d83c3c;
+            color: white;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        #addCardBtn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        
+        #addCardBtn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    
+<div class="container">
+    <div class="title">
+        <h1> Pedidos</h1>
+    </div>
+    <div id="cards" class="cards"></div>
+    <button id="botao-enviar"> Teste </button>
+</div>
 </body>
 </html>
