@@ -13,7 +13,6 @@ function sair() {
     window.location.href = '../index.html';
 }
 
-
 function carregarDoacoes() {
     let htmlCards;
     if (!doacoesUsuario || doacoesUsuario.length === 0) {

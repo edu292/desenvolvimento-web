@@ -13,10 +13,11 @@
             --border-color: #4a4a4a;
             --text-primary: #e0e0e0;
             --text-secondary: #d1d1d1;
-            --accent-blue: #4299e1;
+            --accent-blue: #2997ff;
             --icon-color: #a9a9a9;
-            --icon-hover-edit: #2997ff;
+            --icon-hover-edit: var(--accent-blue);
             --icon-hover-delete: #ff4949;
+            --icon-hover-create: var(--accent-blue);
             --hover-row: #4a4d4f;
         }
         
@@ -149,56 +150,44 @@
         .action-icon.delete:hover svg {
             fill: var(--icon-hover-delete);
         }
-        header {
+
+        .actions-header-cell {
+            padding-right: 12px;
+        }
+
+        .actions-header-content {
             display: flex;
-            justify-content: flex-end;
-            margin-bottom: 20px;
-        }
-
-        .btn-primary {
-            display: inline-flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 8px;
-            background-color: var(--accent-blue);
-            color: white;
-            padding: 10px 16px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.2s ease, transform 0.2s ease;
         }
 
-        .btn-primary:hover {
-            background-color: #5aa9e6;
-            transform: translateY(-2px);
+        .action-icon.create:hover {
+            background-color: rgba(66, 153, 225, 0.15);
         }
-
-        .btn-primary svg {
-            width: 18px;
-            height: 18px;
-            fill: white;
+        .action-icon.create:hover svg {
+            fill: var(--icon-hover-create);
         }
+    
     </style>
 </head>
 <body>
 
     <section class="table-wrapper">
-        <header>
-            <a href="formulario.html" class="btn-primary">
-                <svg viewBox="0 0 24 24"><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"></path></svg>
-                Criar Nova Categoria
-            </a>
-        </header>
         <table class="tabela">
             <thead>
             <tr>
                 <th>Nome</th>
                 <th>Itens</th>
                 <th>Alguns Itens</th>
-                <th>Ações</th>
+                <th class="actions-header-cell">
+                    <div class="actions-header-content">
+                        <span>Ações</span>
+                        <a href="formulario.html" class="action-icon create" aria-label="Criar Nova Categoria">
+                            <span class="tooltip">Criar Nova Categoria</span>
+                            <svg viewBox="0 0 24 24"><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"></path></svg>
+                        </a>
+                    </div>
+                </th>
             </tr>
             </thead>
             <tbody id="corpo-tabela">
