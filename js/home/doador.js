@@ -37,7 +37,7 @@ function carregarDoacoes() {
                     <h4>${doacao.titulo}</h4>
                     <p>Quantidade de Itens: ${doacao.unidades}</p>
                     <p>Peso Total (Kg): ${doacao.peso}</p>
-                    <p>Status: ${doacao.status}</p>
+                    <p>Status: ${doacao.status || 'Disponível'}</p>
                 </div>
                 </a>
             `;
