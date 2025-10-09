@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Categorias com Ações</title>
+    <script src="../js/categoria.js" defer></script>
+    <style>
+        :root {
+            --bg-body: #3c3f41;
+            --bg-container: #313335;
+            --bg-header: #3a3d3f;
+            --border-color: #4a4a4a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #d1d1d1;
+            --accent-blue: #4299e1;
+            --icon-color: #a9a9a9;
+            --icon-hover-edit: #2997ff;
+            --icon-hover-delete: #ff4949;
+            --hover-row: #4a4d4f;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, Helvetica sans-serif;
+            color: var(--text-primary);
+        }
+
+        .table-wrapper {
+            width: 90%;
+            max-width: 900px;
+            background-color: var(--bg-container);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .tabela {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .tabela th {
+            height: 55px;
+            background-color: var(--bg-header);
+            text-align: left;
+            padding: 0 20px;
+            font-size: 1em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .tabela td {
+            height: 55px;
+            padding: 0 20px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .tabela tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tabela th:nth-child(2), .tabela td:nth-child(2),
+        .tabela th:last-child, .tabela td:last-child {
+            text-align: center;
+        }
+
+        .tabela tbody tr {
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .tabela tbody tr:hover {
+            background-color: var(--hover-row);
+        }
+        
+        .actions-cell {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .action-icon {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin: 0 8px;
+            cursor: pointer;
+            position: relative;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .action-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--icon-color);
+            transition: fill 0.2s ease;
+        }
+        
+        .action-icon .tooltip {
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2b2b2b;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            pointer-events: none;
+        }
+
+        .action-icon:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .action-icon.edit:hover {
+            background-color: rgba(41, 151, 255, 0.15);
+        }
+        .action-icon.edit:hover svg {
+            fill: var(--icon-hover-edit);
+        }
+
+        .action-icon.delete:hover {
+            background-color: rgba(255, 73, 73, 0.15);
+        }
+        .action-icon.delete:hover svg {
+            fill: var(--icon-hover-delete);
+        }
+        header {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #5aa9e6;
+            transform: translateY(-2px);
+        }
+
+        .btn-primary svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="table-wrapper">
+        <header>
+            <a href="formulario.html" class="btn-primary">
+                <svg viewBox="0 0 24 24"><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"></path></svg>
+                Criar Nova Categoria
+            </a>
+        </header>
+        <table class="tabela">
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Itens</th>
+                <th>Alguns Itens</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody id="corpo-tabela">
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

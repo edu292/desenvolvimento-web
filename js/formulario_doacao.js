@@ -1,70 +1,7 @@
-const categorias = [
-    {
-        value: "graos-cereais",
-        name: "Grãos e Cereais",
-        items: {
-            "arroz": "Arroz",
-            "feijao-preto": "Feijão Preto",
-            "feijao-carioca": "Feijão Carioca",
-            "lentilha": "Lentilha",
-            "milho-pipoca": "Milho de Pipoca",
-            "macarrao": "Macarrão",
-            "farinha-trigo": "Farinha de Trigo",
-            "fuba": "Fubá",
-            "aveia": "Aveia"
-        }
-    },
-    {
-        value: "enlatados-conservas",
-        name: "Enlatados e Conservas",
-        items: {
-            "milho-conserva": "Milho em Conserva",
-            "ervilha-conserva": "Ervilha em Conserva",
-            "molho-tomate": "Molho de Tomate",
-            "atum-lata": "Atum em Lata",
-            "sardinha-lata": "Sardinha em Lata"
-        }
-    },
-    {
-        value: "oleos-temperos-acucares",
-        name: "Óleos, Temperos e Açúcares",
-        items: {
-            "oleo-soja": "Óleo de Soja",
-            "sal-refinado": "Sal Refinado",
-            "acucar-refinado": "Açúcar Refinado",
-            "cafe-po": "Café em Pó",
-            "achocolatado-po": "Achocolatado em Pó",
-            "leite-po": "Leite em Pó",
-            "leite-condensado": "Leite Condensado",
-            "creme-leite": "Creme de Leite"
-        }
-    },
-    {
-        value: "biscoitos-paes",
-        name: "Biscoitos e Pães",
-        items: {
-            "biscoito-cream-cracker": "Biscoito Cream Cracker",
-            "biscoito-recheado": "Biscoito Recheado",
-            "pao-forma": "Pão de Forma",
-            "pao-integral": "Pão Integral"
-        }
-    },
-    {
-        value: "bebidas",
-        name: "Bebidas",
-        items: {
-            "leite": "Leite",
-            "suco-caixa": "Suco em Caixa",
-            "suco-po": "Suco em Pó"
-        }
-    }
-];
-
-
 function carregarOpcoesSelects() {
     let selectNomeHtml = '<option value="" disabled selected>-- Selecione --</option>';
     let selectCategoriaHtml = '<option value="" disabled selected>-- Selecione --</option>';
-    categorias.forEach(categoria => {
+    listaCategorias.forEach(categoria => {
         selectCategoriaHtml += `<option value="${categoria.value}">${categoria.name}</option>`;
         selectNomeHtml += `<optgroup label="${categoria.name}" data-value="${categoria.value}">`;
         for (const [itemId, itemName] of Object.entries(categoria.items)) {
@@ -112,7 +49,7 @@ function carregarLinhasTabelaAlimentos(){
         tbodyHtml += `<td>${alimento.categoria}</td>`;
         tbodyHtml += `<td>${alimento.pesoUnidade * alimento.quantidade}</td>`;
         tbodyHtml += `<td>${alimento.quantidade}</td>`;
-        tbodyHtml += `<td><button class="botao vermelho" onclick="deleteAlimento(${id})">Excluir</button><button class="botao verde" onclick="completarFormularioAlimento(${id})">Atualizar</button></td>`;
+        tbodyHtml += `<td><button class="vermelho" onclick="deleteAlimento(${id})">Excluir</button><button class="verde" onclick="completarFormularioAlimento(${id})">Atualizar</button></td>`;
         tbodyHtml += "</tr>";
     });
     corpoTabela.innerHTML = tbodyHtml;
@@ -155,6 +92,7 @@ const formularioDoacao = document.getElementById('formulario-doacao');
 const formularioAlimento = document.getElementById('formulario-alimento');
 const corpoTabela = document.getElementById('corpo-tabela');
 const listaDoacoes = JSON.parse(localStorage.getItem("listaDoacoes")) ?? [];
+const listaCategorias = JSON.parse(localStorage.getItem("listaCategorias")) ?? [];
 const idDoacao = new URLSearchParams(window.location.search).get('id');
 let idAlimento = null;
 let listaAlimentos;
@@ -200,9 +138,9 @@ formularioAlimento.addEventListener('submit', (event) => {
 
     if (idAlimento !== null) {
         listaAlimentos[idAlimento] = alimentoAtualizado;
+        idAlimento = null;
     } else {
         listaAlimentos.push(alimentoAtualizado);
-        idAlimento = null;
     }
 
     carregarLinhasTabelaAlimentos();
