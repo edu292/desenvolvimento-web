@@ -1,4 +1,4 @@
-sessao = JSON.parse(localStorage.getItem('sessao'));
+const sessao = JSON.parse(localStorage.getItem('sessao'));
 if (!sessao || sessao.tipoUsuario !== 'doador') {
     window.location.assign('../index.html');
 }
