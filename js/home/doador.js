@@ -18,11 +18,13 @@ function carregarDoacoes() {
     if (!doacoesUsuario || doacoesUsuario.length === 0) {
         htmlCards = `
             <div style="
-                text-align: center; 
-                padding: 30px; 
-                color: #555; 
+                display: flex;
+                color: #555;
                 width: 400px;
                 margin: 0 auto;
+                height: 50vh;
+                flex-direction: column;
+                justify-content: center;
             ">
                 <h2>Nenhuma doação cadastrada ainda.</h2>
                 <p>Use o botão "Criar Doação" para cadastrar sua primeira doação!</p>
